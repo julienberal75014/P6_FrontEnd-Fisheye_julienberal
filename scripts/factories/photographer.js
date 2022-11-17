@@ -7,11 +7,15 @@ function photographerFactory(data) {
         const article = document.createElement('article');
         const user = document.createElement('div')
         user.classList.add('user');
+        user.setAttribute('role', 'presentation');
+        user.setAttribute('aria-label', 'photographer presntation');
         const link = document.createElement('a');
         link.href = "index.html";
+        link.setAttribute('aria-label', `Voir la page de ${name}`);
         const img = document.createElement('img');
         img.setAttribute("src", picture)
         img.setAttribute("alt", name)
+        img.setAttribute("role", "img")
         const h2 = document.createElement('h2');
         h2.textContent = name;
         const p = document.createElement('p');
