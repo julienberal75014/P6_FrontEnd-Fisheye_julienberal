@@ -11,18 +11,29 @@
 
 <body>
   <header>
-    <img src="assets/images/logo.png" class="logo" alt="Fisheye logo" role="img" />
+    <a aria-label="Fisheye Home page" aria-current="page" href="index.html" alt="Fisheye Home page">
+      <img src="assets/images/logo.png" class="logo" alt="Fisheye logo" role="img" />
+    </a>
   </header>
   <main id="main">
     <div class="photograph-header">
-      <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
     </div>
+    <section class="photograph_medias">
+      <div class="container-filters">
+        <label for="filters">Trier par</label>
+        <select class="choice" tabindex="3">
+          <option class="pop" selected value="popularity">Popularité</option>
+          <option class="date" value="date">Date</option>
+          <option class="title" value="title">Titre</option>
+        </select>
+      </div>
+    </section>
   </main>
   <div id="contact_modal">
     <div class="modal">
       <header>
         <h2>Contactez-moi</h2>
-        <img src="assets/icons/close.svg" onclick="closeModal()" />
+        <img src="assets/icons/close.svg" onclick="closeModal()" alt="close button" />
       </header>
       <form>
         <div>
@@ -34,6 +45,7 @@
     </div>
   </div>
   <script src="/scripts/pages/photographer.js"></script>
+  <script src="/scripts/factories/portfolio.js"></script>
   <script src="/scripts/utils/contactForm.js"></script>
 </body>
 

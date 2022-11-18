@@ -5,7 +5,14 @@ body {
   margin: 0;
 }
 
+main {
+  max-width: 1440px;
+  margin: auto;
+}
+
 header {
+  max-width: 1440px;
+  margin: auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
