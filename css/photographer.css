@@ -2,6 +2,22 @@
   display: none;
 }
 
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+}
+button {
+  border: 0;
+}
+
 .photograph-header {
   background-color: #fafafa;
   height: 300px;
@@ -131,42 +147,91 @@ form input {
   font-weight: 400;
   font-size: 18px;
   color: #525252;
+  margin-top: 15px;
 }
 
-.container-filters {
+.photograph-medias {
+  margin-bottom: 4rem;
+}
+
+.filter {
   display: flex;
   margin-left: 100px;
   margin-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   font-size: 18px;
   position: relative;
+  align-items: center;
 }
 
-.container-filters label {
-  margin-right: 12px;
-}
-
-.container-filters .choice {
+.choice {
   background-color: #901c1c;
-  width: auto;
+  width: 12%;
+  margin-left: 45px;
   color: white;
   border-radius: 5px;
+  padding: 20px;
   margin-top: 5px;
   cursor: pointer;
   font-size: 18px;
-  font-weight: 700;
   border: none;
-  padding: 23px 60px 23px 20px;
+  font-weight: bold;
 }
 
-.container-filters .choice:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 0;
-  height: 0;
-  border-top: 20px solid transparent;
-  border-bottom: 20px solid transparent;
-  border-left: 20px solid #901c1c;
+.photograph-medias-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-left: 100px;
+  gap: 95px;
+}
+
+.media-card img,
+.media-card video {
+  width: 350px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.media-card .media-text img {
+  width: 19px;
+  height: 19px;
+}
+
+.media-card .media-text {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #911c1c;
+}
+
+.media-card .media-text h2 {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.media-text .button-like {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.headband {
+  position: fixed;
+  bottom: 0;
+  right: 35px;
+  width: 367px;
+  height: 70px;
+  background: #db8876;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 5px 5px 0px 0px;
+}
+
+.headband .likeClass {
+  display: flex;
+  align-items: center;
+  gap: 7px;
 }
