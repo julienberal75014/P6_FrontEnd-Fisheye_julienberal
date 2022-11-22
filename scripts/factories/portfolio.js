@@ -34,6 +34,8 @@ function photographerHeader(data) {
         section.appendChild(button);
         section.appendChild(img);
 
+        document.getElementById("modalTitle").innerHTML = document.getElementById("modalTitle").innerHTML + "<br/>" + name;
+
         return (section);
 
     }
@@ -137,3 +139,4 @@ function headband() {
 }
 
 headband();
+

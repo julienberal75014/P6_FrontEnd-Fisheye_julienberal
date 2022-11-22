@@ -22,8 +22,6 @@ function displayData(photographers) {
             photographerSections.appendChild(userCardDOM);
 
             headband_price += photographerModel.price;
-            console.log(headband_price);
-
         }
     });
 
@@ -35,6 +33,7 @@ function displayData(photographers) {
 function displayMedia(media) {
 
     const mediaSections = document.querySelector(".photograph-medias-container");
+    let totalLikes = 0;
 
     media.forEach(media => {
         if (media.photographerId == photographId) {
@@ -43,21 +42,11 @@ function displayMedia(media) {
             const mediaDOM = mediaModel.getMediaDOM();
             mediaSections.appendChild(mediaDOM);
 
+            totalLikes += mediaModel.likes;
         }
     });
 
-    let totalLikes = 0;
-    media.forEach(media => {
-        if (media.photographerId == photographId) {
-            const mediaModel = mediaFactory(media);
-            const userMediaDOM = mediaModel.getMediaDOM();
-            mediaSections.appendChild(userMediaDOM);
-            totalLikes += mediaModel.likes;
-            console.log(totalLikes);
-        }
-    })
-
-    let total_likes = document.getElementById("total_likes");
+    const total_likes = document.getElementById("total_likes");
     total_likes.textContent = totalLikes;
 }
 

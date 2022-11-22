@@ -16,6 +16,7 @@ ul {
 }
 button {
   border: 0;
+  background-color: transparent;
 }
 
 .photograph-header {
@@ -31,6 +32,16 @@ button {
   display: flex;
 }
 
+#contact_modal {
+  position: fixed;
+  overflow: auto;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: contrast(50%);
+}
+
 .contact_button {
   font-size: 20px;
   font-weight: bold;
@@ -42,8 +53,6 @@ button {
   background-color: #901c1c;
   border-radius: 5px;
   cursor: pointer;
-  margin-top: 137px;
-  margin-bottom: 107px;
 }
 
 .contact_button:hover,
@@ -56,17 +65,23 @@ button {
   border-radius: 5px;
   background-color: #db8876;
   width: 50%;
+  max-width: 669px;
+  min-width: 669px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 35px;
-  margin: auto;
+  padding: 15px 35px 35px 35px;
+  margin: 20px auto;
+  box-shadow: 0px 12px 12px rgba(0, 0, 0, 0.25);
 }
 
 .modal header {
   justify-content: space-between;
   width: 100%;
+  height: auto;
+  align-items: baseline;
+  margin-bottom: 15px;
 }
 
 .modal header img {
@@ -76,7 +91,7 @@ button {
 .modal header h2 {
   font-size: 64px;
   font-weight: normal;
-  text-align: center;
+  text-align: left;
 }
 
 form {
@@ -99,11 +114,35 @@ form div {
   margin-bottom: 26px;
 }
 
+form div:nth-child(1) {
+  margin-bottom: 0px;
+}
+
+form div:nth-child(2) {
+  margin-bottom: 0px;
+}
+
+form div:nth-child(3) {
+  margin-bottom: 10px;
+}
+
 form input {
   width: 100%;
   height: 68px;
   border: none;
   border-radius: 5px;
+  font-size: 36px;
+  font-weight: 400;
+  padding: 0 20px;
+}
+
+form textarea {
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: 400;
+  resize: none;
 }
 
 .photographer-banner {
@@ -192,6 +231,7 @@ form input {
   height: 300px;
   object-fit: cover;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .media-card .media-text img {

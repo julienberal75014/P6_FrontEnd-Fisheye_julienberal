@@ -20,7 +20,7 @@
     </div>
     <section class="photograph-medias">
       <div class="filter">
-        <p class="filter_by">Trier par</p>
+        <p class="order_by">Trier par</p>
         <select class="choice" tabindex="3">
           <option class="popular" value="popular">Popularité</option>
           <option class="date" value="date">Date</option>
@@ -33,23 +33,48 @@
     </section>
   </main>
   <div id="contact_modal">
-    <div class="modal">
+    <div class="modal" aria-hidden="true" aria-describedby="modalTitle" role="dialog">
       <header>
-        <h2>Contactez-moi</h2>
-        <img src="assets/icons/close.svg" onclick="closeModal()" alt="close button" />
+        <h2 id="modalTitle" class="modal-title">Contactez-moi</h2>
+        <button class="close-modal-button" aria-label="Close modal" aria-current="page" alt="Close modal">
+          <img src="assets/icons/close.svg" onclick="closeModal()" alt="close button" aria-label="fermer la modale" />
+        </button>
       </header>
-      <form>
-        <div>
-          <label>Prénom</label>
-          <input />
+      <form aria-describedby="modalForm">
+        <div class="formData">
+          <label for="firstName">Prénom</label><br>
+          <input class="text-control" aria-label="Entrez votre prénom" type="text" id="firstName" name="firstName"
+            required minlength="2" /><br>
+          <span class="error-message" id="firstNameAlert"></span>
         </div>
-        <button class="contact_button">Envoyer</button>
+        <div class="formData">
+          <label for="lastName">Nom</label><br>
+          <input class="text-control" aria-label="Entrez votre nom" type="text" id="lastName" name="lastName" required
+            minlength="2" /><br>
+          <span class="error-message" id="lastNameAlert"></span>
+        </div>
+        <div class="formData">
+          <label for="email">E-mail</label><br>
+          <input class="text-control" aria-label="Entrez votre adresse email" type="email" id="email" name="email"
+            required /><br>
+          <span class="error-message" id="emailAlert"></span>
+        </div>
+        <div class=formData>
+          <label for="message">Votre message</label>
+          <textarea class="text-control" aria-label="Détail de votre message" type="textarea" id="message"
+            name="message" contenteditable="true" rows="6" cols="87" required minlength="6"></textarea>
+          <span class="error-message" id="messageAlert"></span>
+        </div>
+        <button class="contact_button" type=submit aria-label="envoyer le formulaire"
+          onclick="validate()">Envoyer</button>
       </form>
     </div>
   </div>
   <script src="/scripts/pages/photographer.js"></script>
   <script src="/scripts/factories/portfolio.js"></script>
   <script src="/scripts/utils/contactForm.js"></script>
+  <script src="/scripts/factories/lightbox.js"></script>
+
 </body>
 
 </html>
