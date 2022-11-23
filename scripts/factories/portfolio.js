@@ -2,7 +2,7 @@ function photographerHeader(data) {
 
     const { name, city, country, tagline, portrait, price, likes } = data;
 
-    const picture = `assets/photographers/${portrait}`;
+    const picture = `./assets/photographers/${portrait}`;
 
     function getPhotographerHeaderDOM() {
         const section = document.createElement('section');
@@ -51,32 +51,42 @@ function mediaFactory(data) {
 
         const mediaCard = document.createElement('article');
         mediaCard.classList.add('media-card');
+        const link = document.createElement('a');
+        link.setAttribute("href", `#`);
+        link.setAttribute("aria-label", title);
+        link.setAttribute("role", "link");
+        link.setAttribute("id", "lightbox-link");
+        link.setAttribute("onclick", "displayLightbox(" + id + ")");
 
         if (data.image) {
 
             const img = document.createElement('img');
 
             img.setAttribute("tabindex", "4");
-            img.setAttribute("src", `assets/media/${photographerId}/${image}`);
+            img.setAttribute("src", `./assets/media/${photographerId}/${image}`);
             img.setAttribute("alt", title);
             img.setAttribute("role", "img");
             img.setAttribute("aria-label", title);
 
-            mediaCard.appendChild(img);
+            link.appendChild(img);
+            mediaCard.appendChild(link);
         } else if (data.video) {
 
             const video = document.createElement('video');
-            const mp4 = `assets/media/${photographerId}/${data.video}`;
+            const mp4 = `./assets/media/${photographerId}/${data.video}`;
             const source = document.createElement("source");
 
             video.setAttribute("tabindex", "4");
             video.setAttribute("controls", " ");
+            video.setAttribute("poster", `./assets/media/${photographerId}/${image}`);
+            video.setAttribute("preload", "metadata");
             source.setAttribute("src", mp4);
             source.setAttribute("alt", title);
             source.setAttribute("type", "video/mp4");
 
             video.appendChild(source);
-            mediaCard.appendChild(video);
+            link.appendChild(video);
+            mediaCard.appendChild(link);
         }
 
         const mediaText = document.createElement('div');
@@ -88,7 +98,7 @@ function mediaFactory(data) {
         const h2_likes = document.createElement('h2');
         h2_likes.textContent = likes;
         const heartImg = document.createElement('img');
-        heartImg.setAttribute("src", "assets/icons/heart.svg");
+        heartImg.setAttribute("src", "./assets/icons/heart.svg");
         heartImg.setAttribute("alt", "likes");
         heartImg.setAttribute("role", "img");
         heartImg.setAttribute("aria-label", "likes");
@@ -99,8 +109,6 @@ function mediaFactory(data) {
         buttonLike.appendChild(h2_likes);
         buttonLike.appendChild(heartImg);
         mediaText.appendChild(buttonLike);
-
-
         mediaCard.appendChild(mediaText);
 
         return (mediaCard);
@@ -122,7 +130,7 @@ function headband() {
     priceClass.classList.add('priceClass');
 
     like.id = "total_likes";
-    heart.setAttribute("src", "assets/icons/black-heart.svg");
+    heart.setAttribute("src", "./assets/icons/black-heart.svg");
     price.id = "price";
 
 

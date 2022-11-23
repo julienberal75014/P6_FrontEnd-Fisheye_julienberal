@@ -231,7 +231,6 @@ form textarea {
   height: 300px;
   object-fit: cover;
   border-radius: 5px;
-  cursor: pointer;
 }
 
 .media-card .media-text img {
@@ -247,7 +246,7 @@ form textarea {
 }
 
 .media-card .media-text h2 {
-  font-size: 20px;
+  font-size: 17px;
   font-weight: 400;
 }
 
@@ -274,4 +273,8 @@ form textarea {
   display: flex;
   align-items: center;
   gap: 7px;
+}
+
+.lightbox {
+  display: none;
 }
