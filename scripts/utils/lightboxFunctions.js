@@ -1,33 +1,45 @@
-/*const lightbox = document.getElementsByClassName('.lightbox');
-const lightboxContent = document.getElementsByClassName('.lightbox-text');
+const lightboxMedia = document.getElementsByClassName("lightbox_media");
 
-function displayLightbox(id) {
-
+function displayLightbox() {
     lightbox.style.display = "block";
-    displayLightboxMedia(id);
 }
 
 function closeLightbox() {
-
     lightbox.style.display = "none";
-    lightboxContent.textContent = "";
-
 }
 
-function displayLightboxMedia(id) {
+let mediaIndex = 1;
 
-    const media = document.querySelector(`#media-${id}`);
-    const mediaClone = media.cloneNode(true);
+function showMedia(n) {
+    let i;
+    const medias = document.getElementsByClassName("lightbox_media");
 
-    if (mediaClone.querySelector('video')) {
-        mediaClone.querySelector('video').play();
-    } else if (mediaClone.querySelector('img')) {
-        mediaClone.querySelector('img').style.display = "block";
+    if (n > medias.length) {
+        mediaIndex = 1
     }
-
-    lightboxContent.appendChild(mediaClone);
-    lightboxContent.textContent = "";
-
+    if (n < 1) {
+        mediaIndex = medias.length
+    }
+    for (i = 0; i < medias.length; i++) {
+        medias[i].style.display = "none";
+    }
+    medias[mediaIndex - 1].style.display = "flex";
 }
 
-*/
+function currentMedia(n) {
+    showMedia(mediaIndex = n);
+}
+
+function plusMedia(n) {
+    showMedia(mediaIndex += n);
+}
+
+
+
+
+
+
+
+
+
+

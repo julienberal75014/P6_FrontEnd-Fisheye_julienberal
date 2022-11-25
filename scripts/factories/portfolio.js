@@ -51,12 +51,6 @@ function mediaFactory(data) {
 
         const mediaCard = document.createElement('article');
         mediaCard.classList.add('media-card');
-        const link = document.createElement('a');
-        link.setAttribute("href", `#`);
-        link.setAttribute("aria-label", title);
-        link.setAttribute("role", "link");
-        link.setAttribute("id", "lightbox-link");
-        link.setAttribute("onclick", "displayLightbox(" + id + ")");
 
         if (data.image) {
 
@@ -68,8 +62,9 @@ function mediaFactory(data) {
             img.setAttribute("role", "img");
             img.setAttribute("aria-label", title);
 
-            link.appendChild(img);
-            mediaCard.appendChild(link);
+
+            mediaCard.appendChild(img);
+
         } else if (data.video) {
 
             const video = document.createElement('video');
@@ -77,16 +72,16 @@ function mediaFactory(data) {
             const source = document.createElement("source");
 
             video.setAttribute("tabindex", "4");
-            video.setAttribute("controls", " ");
-            video.setAttribute("poster", `./assets/media/${photographerId}/${image}`);
             video.setAttribute("preload", "metadata");
+            video.setAttribute("role", "video");
             source.setAttribute("src", mp4);
             source.setAttribute("alt", title);
             source.setAttribute("type", "video/mp4");
+            source.setAttribute("aria-label", title);
 
             video.appendChild(source);
-            link.appendChild(video);
-            mediaCard.appendChild(link);
+            mediaCard.appendChild(video);
+
         }
 
         const mediaText = document.createElement('div');
