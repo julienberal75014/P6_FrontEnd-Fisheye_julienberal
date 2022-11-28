@@ -92,6 +92,7 @@ function mediaFactory(data) {
         h2.textContent = title;
         const h2_likes = document.createElement('h2');
         h2_likes.textContent = likes;
+        h2_likes.classList.add('likes');
         const heartImg = document.createElement('img');
         heartImg.setAttribute("src", "./assets/icons/heart.svg");
         heartImg.setAttribute("alt", "likes");

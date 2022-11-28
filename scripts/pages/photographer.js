@@ -38,6 +38,7 @@ function displayMedia(media) {
     const lightbox = document.querySelector(".lightbox");
     lightbox.textContent = "";
 
+
     media.forEach(media => {
         if (media.photographerId == photographId) {
 
@@ -53,23 +54,36 @@ function displayMedia(media) {
     const total_likes = document.getElementById("total_likes");
     total_likes.textContent = totalLikes;
 
+    addLike();
+
     let mediaArticle = document.querySelector(".photograph-medias-container");
     for (let i = 0; i < mediaArticle.children.length; i++) {
-        mediaArticle.children[i].addEventListener("click", () => {
+        mediaArticle.children[i].children[0].addEventListener("click", () => {
             currentMedia(i + 1);
             displayLightbox();
         });
+        mediaArticle.addEventListener("keypress", function (event) {
+            if (event.key === 'Escape') {
+                closeLightbox();
+            } else if (event.key === 'ArrowRight') {
+                plusMedia(1);
+            } else if (event.key === 'ArrowLeft') {
+                plusMedia(-1);
+            }
+        });
     }
+}
 
-    mediaArticle.addEventListener("keydown", function (event) {
-        if (event.key === "Escape") {
-            closeLightbox();
-        } else if (event.key === "ArrowRight") {
-            plusMedia(1);
-        }
-        else if (event.key === "ArrowLeft") {
-            plusMedia(-1);
-        }
+function addLike() {
+
+    const likeButton = document.querySelectorAll(".button-like");
+    likeButton.forEach(e => {
+        e.addEventListener("click", () => {
+            const likeNumber = e.querySelector(".likes");
+            likeNumber.textContent = parseInt(likeNumber.textContent) + 1;
+            let totalLikes = document.getElementById("total_likes");
+            totalLikes.textContent = parseInt(totalLikes.textContent) + 1;
+        });
     });
 }
 
@@ -97,12 +111,14 @@ function filterMedia(media) {
 
 }
 
-
 async function display() {
     const { photographers, media } = await getPhotographers();
     displayData(photographers);
     displayMedia(media);
-    menuChoice.addEventListener("change", () => filterMedia(media));
+    filterMedia(media);
+    menuChoice.addEventListener("change", () => {
+        filterMedia(media);
+    });
 }
 
 display(); 

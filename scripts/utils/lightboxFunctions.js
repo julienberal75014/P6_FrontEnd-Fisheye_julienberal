@@ -34,10 +34,15 @@ function plusMedia(n) {
     showMedia(mediaIndex += n);
 }
 
-
-
-
-
+document.addEventListener("keydown", function (event) {
+    if (event.key === 'Escape') {
+        closeLightbox();
+    } else if (event.key === 'ArrowRight') {
+        plusMedia(1);
+    } else if (event.key === 'ArrowLeft') {
+        plusMedia(-1);
+    }
+});
 
 
 
