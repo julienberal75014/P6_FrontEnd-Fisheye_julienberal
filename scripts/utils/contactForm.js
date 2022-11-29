@@ -1,7 +1,5 @@
-const modal = document.getElementById("contact_modal");
+/* eslint-disable no-unused-vars */
 const form = document.querySelector("form");
-const closeBtn = document.getElementsByClassName("close-modal-button");
-const submitBtn = document.getElementsByClassName("contact_button");
 
 const firstName = document.querySelector("#firstName");
 const lastName = document.querySelector("#lastName");

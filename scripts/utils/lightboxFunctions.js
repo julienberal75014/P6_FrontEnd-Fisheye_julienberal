@@ -1,10 +1,12 @@
-const lightboxMedia = document.getElementsByClassName("lightbox_media");
+/* eslint-disable no-unused-vars */
 
 function displayLightbox() {
+    const lightbox = document.querySelector(".lightbox");
     lightbox.style.display = "block";
 }
 
 function closeLightbox() {
+    const lightbox = document.querySelector(".lightbox");
     lightbox.style.display = "none";
 }
 
@@ -15,10 +17,10 @@ function showMedia(n) {
     const medias = document.getElementsByClassName("lightbox_media");
 
     if (n > medias.length) {
-        mediaIndex = 1
+        mediaIndex = 1;
     }
     if (n < 1) {
-        mediaIndex = medias.length
+        mediaIndex = medias.length;
     }
     for (i = 0; i < medias.length; i++) {
         medias[i].style.display = "none";
@@ -35,11 +37,11 @@ function plusMedia(n) {
 }
 
 document.addEventListener("keydown", function (event) {
-    if (event.key === 'Escape') {
+    if (event.key === "Escape") {
         closeLightbox();
-    } else if (event.key === 'ArrowRight') {
+    } else if (event.key === "ArrowRight") {
         plusMedia(1);
-    } else if (event.key === 'ArrowLeft') {
+    } else if (event.key === "ArrowLeft") {
         plusMedia(-1);
     }
 });

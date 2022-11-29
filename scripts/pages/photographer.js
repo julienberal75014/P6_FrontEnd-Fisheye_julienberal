@@ -1,6 +1,7 @@
+/* eslint-disable no-undef */
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
-const photographId = urlParams.get('id');
+const photographId = urlParams.get("id");
 const menuChoice = document.querySelector(".choice");
 
 async function getPhotographers() {
@@ -63,11 +64,11 @@ function displayMedia(media) {
             displayLightbox();
         });
         mediaArticle.addEventListener("keypress", function (event) {
-            if (event.key === 'Escape') {
+            if (event.key === "Escape") {
                 closeLightbox();
-            } else if (event.key === 'ArrowRight') {
+            } else if (event.key === "ArrowRight") {
                 plusMedia(1);
-            } else if (event.key === 'ArrowLeft') {
+            } else if (event.key === "ArrowLeft") {
                 plusMedia(-1);
             }
         });
@@ -77,12 +78,19 @@ function displayMedia(media) {
 function addLike() {
 
     const likeButton = document.querySelectorAll(".button-like");
+    const total_likes = document.getElementById("total_likes");
     likeButton.forEach(e => {
         e.addEventListener("click", () => {
             const likeNumber = e.querySelector(".likes");
-            likeNumber.textContent = parseInt(likeNumber.textContent) + 1;
-            let totalLikes = document.getElementById("total_likes");
-            totalLikes.textContent = parseInt(totalLikes.textContent) + 1;
+            if (e.classList.contains("liked")) {
+                likeNumber.textContent--;
+                e.classList.remove("liked");
+                total_likes.textContent--;
+            } else {
+                likeNumber.textContent++;
+                e.classList.add("liked");
+                total_likes.textContent++;
+            }
         });
     });
 }

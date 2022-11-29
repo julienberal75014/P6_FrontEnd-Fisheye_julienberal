@@ -239,6 +239,13 @@ form textarea {
   height: 19px;
 }
 
+.heart:hover,
+.heart:focus {
+  transform: scale(1.1);
+  filter: brightness(0) saturate(100%) invert(54%) sepia(46%) saturate(421%)
+    hue-rotate(323deg) brightness(103%) contrast(89%);
+}
+
 .media-card .media-text {
   display: flex;
   align-items: center;
