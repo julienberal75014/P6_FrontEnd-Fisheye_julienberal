@@ -217,6 +217,10 @@ form textarea {
   font-weight: bold;
 }
 
+.choice * {
+  border: 2px solid white;
+}
+
 .photograph-medias-container {
   display: flex;
   flex-direction: row;
