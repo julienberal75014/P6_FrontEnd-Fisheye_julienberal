@@ -52,15 +52,14 @@ function lightboxFactory(data) {
         const video = document.createElement("video");
         video.classList.add("media-img");
         const mp4 = `assets/media/${photographerId}/${data.video}`;
-        const source = document.createElement("source");
+
         video.setAttribute("tabindex", "0");
         video.setAttribute("controls", " ");
         video.setAttribute("preload", "metadata");
-        source.setAttribute("src", mp4);
-        source.setAttribute("alt", title);
-        source.setAttribute("type", "video/mp4");
+        video.setAttribute("aria-label", title);
+        video.setAttribute("src", mp4);
+        video.setAttribute("alt", title);
 
-        video.appendChild(source);
         mediaContainer.appendChild(video);
         lightboxMedia.appendChild(mediaContainer);
     }

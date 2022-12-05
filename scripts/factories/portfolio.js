@@ -71,16 +71,12 @@ function mediaFactory(data) {
 
             const video = document.createElement("video");
             const mp4 = `./assets/media/${photographerId}/${data.video}`;
-            const source = document.createElement("source");
 
             video.setAttribute("tabindex", "0");
-            video.setAttribute("preload", "metadata");
-            source.setAttribute("src", mp4);
-            source.setAttribute("alt", title);
-            source.setAttribute("type", "video/mp4");
-            source.setAttribute("aria-label", title);
+            video.setAttribute("aria-label", title);
+            video.setAttribute("src", mp4);
+            video.setAttribute("alt", title);
 
-            video.appendChild(source);
             mediaCard.appendChild(video);
 
         }
