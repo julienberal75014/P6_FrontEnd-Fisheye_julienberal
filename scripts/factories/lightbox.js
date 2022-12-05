@@ -25,7 +25,7 @@ function lightboxFactory(data) {
     closeImg.setAttribute("alt", "close");
     closeImg.setAttribute("role", "img");
     closeImg.setAttribute("aria-label", "close");
-    closeImg.setAttribute("tabindex", "4");
+    closeImg.setAttribute("tabindex", "0");
     closeImg.setAttribute("id", "lightbox-close");
     closeImg.setAttribute("onclick", "closeLightbox()");
     lightboxMedia.appendChild(closeImg);
@@ -40,7 +40,7 @@ function lightboxFactory(data) {
         img.setAttribute("alt", title);
         img.setAttribute("role", "img");
         img.setAttribute("aria-label", title);
-        img.setAttribute("tabindex", "4");
+        img.setAttribute("tabindex", "0");
         img.setAttribute("id", "lightbox-img");
 
         mediaContainer.appendChild(img);
@@ -53,7 +53,7 @@ function lightboxFactory(data) {
         video.classList.add("media-img");
         const mp4 = `assets/media/${photographerId}/${data.video}`;
         const source = document.createElement("source");
-        video.setAttribute("tabindex", "4");
+        video.setAttribute("tabindex", "0");
         video.setAttribute("controls", " ");
         video.setAttribute("preload", "metadata");
         source.setAttribute("src", mp4);
@@ -80,7 +80,7 @@ function lightboxFactory(data) {
     leftArrow.setAttribute("alt", "previous");
     leftArrow.setAttribute("role", "img");
     leftArrow.setAttribute("aria-label", "previous");
-    leftArrow.setAttribute("tabindex", "4");
+    leftArrow.setAttribute("tabindex", "0");
     leftArrow.setAttribute("id", "lightbox-left");
 
     linkLeft.appendChild(leftArrow);
@@ -95,7 +95,7 @@ function lightboxFactory(data) {
     rightArrow.setAttribute("alt", "next");
     rightArrow.setAttribute("role", "img");
     rightArrow.setAttribute("aria-label", "next");
-    rightArrow.setAttribute("tabindex", "4");
+    rightArrow.setAttribute("tabindex", "0");
     rightArrow.setAttribute("id", "lightbox-right");
 
     linkRight.appendChild(rightArrow);

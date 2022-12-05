@@ -58,7 +58,7 @@ function mediaFactory(data) {
 
             const img = document.createElement("img");
 
-            img.setAttribute("tabindex", "4");
+            img.setAttribute("tabindex", "0");
             img.setAttribute("src", `./assets/media/${photographerId}/${image}`);
             img.setAttribute("alt", title);
             img.setAttribute("role", "img");
@@ -73,9 +73,8 @@ function mediaFactory(data) {
             const mp4 = `./assets/media/${photographerId}/${data.video}`;
             const source = document.createElement("source");
 
-            video.setAttribute("tabindex", "4");
+            video.setAttribute("tabindex", "0");
             video.setAttribute("preload", "metadata");
-            video.setAttribute("role", "video");
             source.setAttribute("src", mp4);
             source.setAttribute("alt", title);
             source.setAttribute("type", "video/mp4");
@@ -130,6 +129,9 @@ function headband() {
 
     like.id = "total_likes";
     heart.setAttribute("src", "./assets/icons/black-heart.svg");
+    heart.setAttribute("alt", "likes");
+    heart.setAttribute("role", "img");
+    heart.setAttribute("aria-label", "likes");
     price.id = "price";
 
 
