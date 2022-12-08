@@ -1,10 +1,12 @@
 /* eslint-disable no-undef */
+// Récupère les datas des photographes
 async function getPhotographers() {
     const response = await fetch("data/photographers.json");
     const data = await response.json();
     return data;
 }
 
+// Affiche les données des photographes
 async function displayData(photographers) {
     const photographersSection = document.querySelector(".photographer_section");
 

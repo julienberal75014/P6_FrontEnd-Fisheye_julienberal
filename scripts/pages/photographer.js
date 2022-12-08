@@ -4,13 +4,16 @@ const urlParams = new URLSearchParams(queryString);
 const photographId = urlParams.get("id");
 const menuChoice = document.querySelector(".choice");
 
+
+// Permet de récupérer les données du photographe et des médias
 async function getPhotographers() {
     const response = await fetch("data/photographers.json");
     const data = await response.json();
     return data;
 }
 
-
+// Affiche le header de la page du photographe
+// Affiche le bandeau en bas de la page avec le prix du photographe et le nombre de likes total
 function displayData(photographers) {
 
     const photographerSections = document.querySelector(".photograph-header");
@@ -31,6 +34,9 @@ function displayData(photographers) {
 
 }
 
+
+// Affiche les médias du photographe
+// Permet d'afficher la lightbox
 function displayMedia(media) {
 
     const mediaSections = document.querySelector(".photograph-medias-container");
@@ -52,11 +58,14 @@ function displayMedia(media) {
         }
     });
 
+    // Permet d'afficher le nombres de likes total
     const total_likes = document.getElementById("total_likes");
     total_likes.textContent = totalLikes;
 
+    // Appel la fonction pour ajouter un like, retirer un like, mettre à jour le nombre de likes total
     addLike();
 
+    // Appel la fonction pour afficher la lightbox
     let mediaArticle = document.querySelector(".photograph-medias-container");
     for (let i = 0; i < mediaArticle.children.length; i++) {
         mediaArticle.children[i].children[0].addEventListener("click", () => {
@@ -75,6 +84,9 @@ function displayMedia(media) {
     }
 }
 
+// Permet d'ajouter un like
+// Permet de retirer un like
+// Permet de mettre à jour le nombre de likes total
 function addLike() {
 
     const likeButton = document.querySelectorAll(".button-like");
@@ -95,6 +107,7 @@ function addLike() {
     });
 }
 
+// Permet de filtrer les médias
 function filterMedia(media) {
 
     switch (menuChoice.value) {
@@ -119,6 +132,7 @@ function filterMedia(media) {
 
 }
 
+// Active les fonctions
 async function display() {
     const { photographers, media } = await getPhotographers();
     displayData(photographers);

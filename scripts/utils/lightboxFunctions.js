@@ -12,6 +12,7 @@ function closeLightbox() {
 
 let mediaIndex = 1;
 
+// Permet d'afficher la lightbox
 function showMedia(n) {
     let i;
     const medias = document.getElementsByClassName("lightbox_media");
@@ -28,14 +29,17 @@ function showMedia(n) {
     medias[mediaIndex - 1].style.display = "flex";
 }
 
+// Permet d'afficher la photo cliquée
 function currentMedia(n) {
     showMedia(mediaIndex = n);
 }
 
+// Permet de passer à la photo suivante
 function plusMedia(n) {
     showMedia(mediaIndex += n);
 }
 
+// Permet de fermer la lightbox, de passer à la photo suivante, de passer à la photo précédente
 document.addEventListener("keydown", function (event) {
     if (event.key === "Escape") {
         closeLightbox();
