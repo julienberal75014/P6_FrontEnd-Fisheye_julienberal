@@ -72,6 +72,12 @@ function displayMedia(media) {
             currentMedia(i + 1);
             displayLightbox();
         });
+        mediaArticle.children[i].children[0].addEventListener("keypress", function (event) {
+            if (event.key === "Enter") {
+                currentMedia(i + 1);
+                displayLightbox();
+            }
+        });
         mediaArticle.addEventListener("keypress", function (event) {
             if (event.key === "Escape") {
                 closeLightbox();
@@ -104,10 +110,27 @@ function addLike() {
                 total_likes.textContent++;
             }
         });
+        e.addEventListener("keypress", function (event) {
+            if (event.key === "Enter") {
+                const likeNumber = e.querySelector(".likes");
+                if (e.classList.contains("liked")) {
+                    likeNumber.textContent--;
+                    e.classList.remove("liked");
+                    total_likes.textContent--;
+                } else {
+                    likeNumber.textContent++;
+                    e.classList.add("liked");
+                    total_likes.textContent++;
+                }
+            }
+        });
     });
 }
 
 // Permet de filtrer les médias
+// en mode focus on peut changer de filtre grâce aux fleches directionnelles
+// en mode focus on peut ouvrir le menu déroulant avec shift + espace, et naviguer dedans avec les fleches directionnelles et valider avec entrée
+
 function filterMedia(media) {
 
     switch (menuChoice.value) {
@@ -131,6 +154,7 @@ function filterMedia(media) {
     displayMedia(media);
 
 }
+
 
 // Active les fonctions
 async function display() {

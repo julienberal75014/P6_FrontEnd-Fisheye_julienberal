@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 const form = document.querySelector("form");
 
+const closeBtn = document.querySelector(".close-modal-button");
 const firstName = document.querySelector("#firstName");
 const lastName = document.querySelector("#lastName");
 const email = document.querySelector("#email");
@@ -9,6 +10,7 @@ const message = document.querySelector("#message");
 function displayModal() {
     const modal = document.getElementById("contact_modal");
     modal.style.display = "block";
+    closeBtn.focus();
 }
 
 function closeModal() {
@@ -21,10 +23,8 @@ document.addEventListener("keydown", function (event) {
     if (event.key === "Escape") {
         closeModal();
     }
-    if (event.key === "Enter") {
-        validate();
-    }
 });
+
 
 const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 const nameRegex = /\b([A-ZÀ-ÿ][-,a-z. ']+[ ]*)+[a-zA-Z\-1-9]/;

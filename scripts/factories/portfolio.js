@@ -95,6 +95,8 @@ function mediaFactory(data) {
         heartImg.setAttribute("alt", "likes");
         heartImg.setAttribute("role", "img");
         heartImg.setAttribute("aria-label", "likes");
+        heartImg.setAttribute("tabindex", "0");
+        heartImg.setAttribute("aria-hidden", "true");
         heartImg.classList.add("heart");
 
         mediaText.appendChild(h2);
